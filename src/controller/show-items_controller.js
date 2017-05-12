@@ -14,8 +14,9 @@ App.controller('ShowItemsController', function ($http, $scope, AuthService, Card
                 if (response.data) {
                     $scope.message = '';
                     console.log(response.data)
-                    $scope.items = response.data;
-
+                    $scope.$apply(function(){
+                        $scope.items = response.data;
+                    })
 
                 } else {
                     console.log('no items')
